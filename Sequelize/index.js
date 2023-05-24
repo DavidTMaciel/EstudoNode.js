@@ -24,5 +24,36 @@ const Postagem = sequelize.define('postagens',{
     type: Sequelize.TEXT,
    } 
 });
-//Função sync() sincroniza o objeto com o banco de dados;
-Postagem.sync({force:true});
+//Função sync() sincroniza o objeto com o banco de dados & forca a criação da tabela = Usuario.sync({force: true});
+
+
+//Criação da tabela usuarios;
+
+const Usuario = sequelize.define('usuario',{
+    nome:{
+        type: Sequelize.STRING
+    },
+    sobrenome:{
+        type: Sequelize.STRING
+    },
+    idade:{
+        type:Sequelize.INTEGER
+    },
+    email:{
+        type:Sequelize.STRING
+    }
+})
+
+
+//Criando os dados da tabela postagem;
+Postagem.create({
+    titulo: 'ESPORTES',
+    conteudo:'Tudo relacionado a esportes'
+})
+
+Usuario.create({
+    nome:'David',
+    sobrenome:'Maciel',
+    idade: 23,
+    email:'teste@example.com'
+});
